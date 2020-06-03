@@ -1,9 +1,10 @@
 import React from 'react';
+import MainLayout from './components/mainLayout'
 
 function App() {
   return (
-    <div className="max-w-sm rounded overflow-hidden shadow-lg">
-      Hola
+    <div className="container px-8">
+      <MainLayout/>
     </div>
   );
 }

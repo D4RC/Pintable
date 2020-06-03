@@ -18,6 +18,10 @@ function MainLayout() {
 
     //Efecto secundario: Almacenmaiento en local storage
     useEffect(()=>window.localStorage.setItem('pintable',JSON.stringify(colorGrid)))
+
+    return (
+        <Board cells={colorGrid}/>
+    )
 }
 
 export default MainLayout;
