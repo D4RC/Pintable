@@ -3,7 +3,7 @@ import MainLayout from './components/mainLayout'
 
 function App() {
   return (
-    <div className="container px-8">
+    <div>
       <MainLayout/>
     </div>
   );
