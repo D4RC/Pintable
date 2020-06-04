@@ -15,5 +15,9 @@
 }
 
 .color-selected {
-box-shadow: 0 0 0 3px rgba(66,153,225,.5);
+  box-shadow: inset 0px 0px 68px 18px rgba(255,255,255,1);
+}
+
+.palette {
+  transform: scaleX(-1);
 }

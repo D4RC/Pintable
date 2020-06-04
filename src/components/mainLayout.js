@@ -58,26 +58,30 @@ function MainLayout() {
     return (
         <div className="flex flex-col p-4">
             <div className="flex flex-row w-full mb-4 justify-around">
-                <button
-                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
-                    type="button"
-                    onClick={onReset}
-                >
-                    New game 
-                </button>
-                <button
-                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
-                    type="button"
-                    //onClick={onPrint}
-                >
-                    Print
-                </button>
-                <ColorPalette
-                    mainColour={colorChosen}
-                    onChange={setColor} 
-                />
+                <div className="w-1/4">
+                    <button
+                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
+                        type="button"
+                        onClick={onReset}
+                    >
+                        New game 
+                    </button>
+                    <button
+                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
+                        type="button"
+                        //onClick={onPrint}
+                    >
+                        Print
+                    </button>
+                </div>
+                <div className="w-3/4">
+                    <ColorPalette
+                        mainColour={colorChosen}
+                        onChange={setColor} 
+                    />
+                </div>
             </div>
-            <div className="flex flex-row w-full justify-around mt-16">
+            <div className="flex flex-row w-full justify-around mt-8">
                 <div ref={capture} id="capture" className="bg-gray-200">
                     <div className="empty-state" />
                     <p className="my-4">There's no image to print. Draw something</p>
