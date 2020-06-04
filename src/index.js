@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './assets/main.css';
 import './assets/additional.css';
+import './assets/hexagons.scss'
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
