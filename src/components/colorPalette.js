@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
 
 function ColorPalette(props) {
@@ -11,7 +11,12 @@ function ColorPalette(props) {
     const [status, setStatus] = useState('idle');
 
     //Estado de los colores, con colores por default
-    const [colours, setColours] = useState(['black', 'white', 'gray', 'red', 'orange', 'yellow', 'green', 'blue', 'purple', 'pink']);
+    const [colours, setColours] = useState(
+        window.localStorage.getItem('colours') ? JSON.parse(localStorage.getItem('colours')) :  
+        ['black', 'white', 'gray', 'red', 'orange', 'yellow', 'green', 'blue', 'purple', 'pink']);
+
+    //Efecto secundario: Almacenmaiento en local storage
+    useEffect(()=>window.localStorage.setItem('colours',JSON.stringify(colours)));
 
     const [error, setError] = useState(null);
 
@@ -35,6 +40,7 @@ function ColorPalette(props) {
                 setStatus('rejected');
                 setError(error.message);
                 console.error('Problem with fetch operation;', error);
+                alert(`Error in the request: please try again in a moment`);
             }
         );
     }
@@ -55,17 +61,17 @@ function ColorPalette(props) {
 
     return (
         <div className="h-full">
-            <div className="flex items-center">
-                <div className="flex flex-col justify-between items-center py-4 mx-4">
+            <div className="flex items-center flex-wrap md:flex-no-wrap">
+                <div className="flex flex-col justify-between items-center py-4 mx-4 md:w-1/4 w-full">
                     <p>Choose your colors to begin with:</p>
                     <button className="mt-4 flex items-center shadow bg-gray-800 hover:bg-gray-600 focus:shadow-outline focus:outline-none text-white text-xl py-3 px-10 rounded"
                     onClick={getColors}
                     >
-                        Request a random Palette!
+                        Request a random palette!
                         {buttonDisplay()}
                     </button>
                 </div>
-                <div className="w-full">
+                <div className="md:w-3/4">
                     <ul className="hex-grid__list palette">
                         {colours.map(colour => {
                             const isSelected = colour === mainColour;
@@ -89,5 +95,10 @@ function ColorPalette(props) {
         </div>
     )
 }
+ColorPalette.propTypes = {
+    mainColour: PropTypes.string.isRequired,
+    onChange: PropTypes.func.isRequired,
+}
+
 
 export default ColorPalette;

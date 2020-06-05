@@ -18,12 +18,11 @@ function Board(props) {
     }
 
     return (
-        <div>
-            <div>
+            <div id= "pintable" ref={props.paitingRef}>
                 {cells && cells.map((row,i) => (
                     <div className="flex h-12" key={`row${i}`}>
                     {row.map((col,j) => (
-                        <div className="w-12 h-12 border border-black rounded" style={{backgroundColor: col}} key={`cells${j}`}
+                        <div  className="w-12 h-12 border border-black rounded " style={{backgroundColor: col}} key={`cells${j}`}
                             onClick={() => paintCell(i,j)}
                             onMouseMove={(e) => mouseMove(i,j,e)}
                         >
@@ -32,11 +31,14 @@ function Board(props) {
                     </div>
                 ))}
             </div>
-        </div>
     )
 
 } 
 
+Board.propTypes = {
+    cells: PropTypes.array.isRequired,
+    onPaint: PropTypes.func.isRequired
+}
 
 
 export default Board;

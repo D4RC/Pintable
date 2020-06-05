@@ -15,9 +15,13 @@
 }
 
 .color-selected {
-  box-shadow: inset 0px 0px 68px 18px rgba(255,255,255,1);
+  box-shadow: inset 0px 0px 28px 18px rgba(255,255,255,1);
 }
 
 .palette {
   transform: scaleX(-1);
+}
+
+.mainPage{
+  margin: 1em;
 }
