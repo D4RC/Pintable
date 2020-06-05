@@ -61,8 +61,8 @@ function MainLayout() {
     return (
         <div className="mainPage">  
             <div className="flex flex-col p-4">
-                <div className="flex flex-row w-full mb-4 justify-around">
-                    <div className="w-1/4">
+                <div className="flex flex-row w-full mb-4 justify-around flex-wrap">
+                    <div className="md:w-1/4 w-full">
                         <button
                             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mr-1"
                             type="button"
@@ -78,7 +78,7 @@ function MainLayout() {
                             Print
                         </button>
                     </div>
-                    <div className="w-3/4">
+                    <div className="w-full md:w-3/4">
                         <ColorPalette
                             mainColour={colorChosen}
                             onChange={setColor} 

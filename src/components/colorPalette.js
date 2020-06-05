@@ -23,7 +23,7 @@ function ColorPalette(props) {
     //Petición a la Hexbot API
     function getColors() {
         setStatus('loading');
-        fetch('http://api.noopschallenge.com/hexbot?count=10').then(
+        fetch('https://api.noopschallenge.com/hexbot?count=10').then(
             (response) => {
                 if(!response.ok) {
                     throw new Error(`Newtwork response not ok, status code: ${response.status}`)
@@ -71,7 +71,7 @@ function ColorPalette(props) {
                         {buttonDisplay()}
                     </button>
                 </div>
-                <div className="md:w-3/4">
+                <div className="w-full md:w-3/4">
                     <ul className="hex-grid__list palette">
                         {colours.map(colour => {
                             const isSelected = colour === mainColour;
