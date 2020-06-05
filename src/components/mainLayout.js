@@ -101,7 +101,7 @@ function MainLayout() {
                     </div>
                 </div>
                 <div className="flex flex-wrap justify-around">
-                    <div ref={capture} id="pintable" className="bg-gray-200 border border-black flex flex-col  items-center flex-wrap">
+                    <div ref={capture} id="pintable" className="bg-gray-200 border border-black flex flex-col  items-center flex-wrap mb-8">
                         <img className="h-64 w-auto" src={PerritoJack} alt="Logo" />
                         <p className ='my-5'>There's no image to print. Draw something</p>
                         <button
