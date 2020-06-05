@@ -8,7 +8,17 @@ import html2canvas from 'html2canvas';
 import PerritoJack from '../assets/PerritoJack.png'
 
  //Datos de la primera carga de la app
-const DAY_ZERO_MATRIX = Array(10).fill(Array(10).fill('#ffffff'));
+const DAY_ZERO_MATRIX = () => {
+    const arr = [];
+    for(let i=0; i<10; i++) {
+        arr.push([]);
+        for(let j=0; j<10; j++) {
+            arr[i].push('#ffffff');
+        }
+    }
+    return arr;
+}
+
 
 function MainLayout() {
     //Hooks y estado
